@@ -1,0 +1,26 @@
+package cat.itacademy.s04.t02.n03.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	@ExceptionHandler(FruitNotFoundException.class)
+	public ResponseEntity<String> handleFruitNotFoundException(FruitNotFoundException ex){
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+	}
+	@ExceptionHandler(ProviderNotFoundException.class)
+	public ResponseEntity<String> handleProviderNotFoundException(ProviderNotFoundException ex){
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+	}
+	@ExceptionHandler(DuplicateProviderName.class)
+	public ResponseEntity<String> handleDuplicateProviderName(DuplicateProviderName ex){
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+	}
+	@ExceptionHandler(ProviderHasFruitsException.class)
+	public ResponseEntity<String> handleProviderHasFruitsException(ProviderHasFruitsException ex){
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+	}
+}
