@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app-fruit-orders:
+    container_name: fruit-order-api-container
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGO_URI=mongodb://root:root@mongo-db:27017/fruit_orders_db?authSource=admin
+    depends_on:
+      - mongo-db
+    networks:
+      - fruit-network
+
+  mongo-db:
+    container_name: mongo-db-container
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - fruit-network
+
+volumes:
+  mongo_data:
+
+networks:
+  fruit-network:
