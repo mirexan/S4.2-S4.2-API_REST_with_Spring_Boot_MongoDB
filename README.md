@@ -31,10 +31,10 @@ The structure follows this JSON schema:
 
 ```json
 {
-  "_id": "657a...",  // MongoDB ObjectId (String)
+  "_id": "657a...", 
   "clientName": "Joan Garcia",
   "deliveryDate": "2025-12-25",
-  "items": [         // Embedded List of Items
+  "items": [  
     {
       "fruitName": "Apple",
       "quantityInKilos": 5
