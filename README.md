@@ -47,9 +47,6 @@ The structure follows this JSON schema:
 }
 ```
 ---
-Aquí tienes la segunda parte del README.md, formateada correctamente desde la sección de API Endpoints hasta el final.
-
-Markdown
 
 ## 🔌 API Endpoints
 
